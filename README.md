@@ -1,4 +1,4 @@
-# GoTestWAF [![Black Hat Arsenal USA 2022](https://img.shields.io/badge/Black%20Hat%20Arsenal-USA%202022-blue)](https://www.blackhat.com/us-22/arsenal/schedule/index.html#gotestwaf---well-known-open-source-waf-tester-now-supports-api-security-hacking-27986)
+# GoTestWAF 
 
 GoTestWAF is a tool for API and OWASP attack simulation that supports a wide range of API protocols including
 REST, GraphQL, gRPC, WebSockets, SOAP, XMLRPC, and others.
@@ -59,6 +59,7 @@ Since the format of the YAML string is required for payloads, they must be [enco
 
     * gRPC
     * Header
+    * UserAgent
     * RequestBody
     * JSONRequest
     * JSONBody
@@ -68,6 +69,7 @@ Since the format of the YAML string is required for payloads, they must be [enco
     * XMLBody
     * URLParam
     * URLPath
+    * URLFileExt
     * NonCrudUrlPath
     * NonCrudUrlParam
     * NonCRUDHeader

@@ -119,10 +119,14 @@ func (c *HTTPClient) SendPayload(
 		return "", "", 0, errors.Wrap(err, "apply placeholder")
 	}
 
+	uaHeader := req.Header.Get("User-Agent")
+
 	req = req.WithContext(ctx)
 
 	for header, value := range c.headers {
-		req.Header.Set(header, value)
+		if header != "user-agent" || uaHeader == "" {
+			req.Header.Set(header, value)
+		}
 	}
 	req.Host = c.hostHeader
 

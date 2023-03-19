@@ -1,0 +1,17 @@
+---
+payload:
+  - asa
+  - backup
+  - sitemap
+  - bash
+  - sql
+  - ini
+  - old
+  - bak
+  - conf
+encoder:
+  - Plain
+placeholder:
+  - URLFileExt
+type: "Bad File Extensions"
+...

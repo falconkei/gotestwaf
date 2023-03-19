@@ -17,6 +17,7 @@ func init() {
 	Placeholders = make(map[string]Placeholder)
 	Placeholders[DefaultGRPC.GetName()] = DefaultGRPC
 	Placeholders[DefaultHeader.GetName()] = DefaultHeader
+	Placeholders[DefaultUserAgent.GetName()] = DefaultUserAgent
 	Placeholders[DefaultHTMLForm.GetName()] = DefaultHTMLForm
 	Placeholders[DefaultHTMLMultipartForm.GetName()] = DefaultHTMLMultipartForm
 	Placeholders[DefaultJSONBody.GetName()] = DefaultJSONBody
@@ -25,6 +26,7 @@ func init() {
 	Placeholders[DefaultSOAPBody.GetName()] = DefaultSOAPBody
 	Placeholders[DefaultURLParam.GetName()] = DefaultURLParam
 	Placeholders[DefaultURLPath.GetName()] = DefaultURLPath
+	Placeholders[DefaultURLFileExt.GetName()] = DefaultURLFileExt
 	Placeholders[DefaultXMLBody.GetName()] = DefaultXMLBody
 	Placeholders[DefaultNonCrudUrlPath.GetName()] = DefaultNonCrudUrlPath
 	Placeholders[DefaultNonCrudUrlParam.GetName()] = DefaultNonCrudUrlParam

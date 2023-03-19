@@ -1,0 +1,15 @@
+---
+payload:
+  - burp
+  - acunetix
+  - masscan
+  - nikto
+  - dirbuster
+  - fuzz
+  - projectdiscovery
+encoder:
+  - Plain
+placeholder:
+  - UserAgent
+type: "Bad UserAgents"
+...
