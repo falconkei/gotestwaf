@@ -38,10 +38,8 @@ func Incapsula() *Detector {
 	}
 
 	d.Checks = []Check{
-		CheckCookie("^incap_ses.*?="),
-		CheckCookie("^visid_incap.*?="),
-		CheckContent("incapsula incident id"),
-		CheckContent("powered by incapsula"),
+		CheckStatusCode(403),
+		CheckContent("Incapsula incident ID"),
 		CheckContent("/_Incapsula_Resource"),
 	}
 
