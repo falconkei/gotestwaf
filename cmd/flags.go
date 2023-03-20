@@ -15,7 +15,6 @@ import (
 	"github.com/spf13/viper"
 
 	"github.com/wallarm/gotestwaf/internal/config"
-	"github.com/wallarm/gotestwaf/internal/helpers"
 	"github.com/wallarm/gotestwaf/internal/version"
 )
 
@@ -99,8 +98,6 @@ func parseFlags() (args []string, err error) {
 	reportName := flag.String("reportName", defaultReportName, "Report file name. Supports `time' package template format")
 	flag.String("reportFormat", "html", "Export report to one of the following formats: none, pdf, html, json")
 	flag.Bool("includePayloads", false, "If true, payloads will be included in HTML/PDF report")
-	noEmailReport := flag.Bool("noEmailReport", false, "Save report locally")
-	email := flag.String("email", "", "E-mail to which the report will be sent")
 	flag.String("testCasesPath", testCasesPath, "Path to a folder with test cases")
 	flag.String("wafName", wafName, "Name of the WAF product")
 	flag.Bool("ignoreUnresolved", false, "If true, unresolved test cases will be considered as bypassed (affect score and results)")
@@ -126,13 +123,6 @@ func parseFlags() (args []string, err error) {
 	// url flag must be set
 	if *urlParam == "" {
 		return nil, errors.New("--url flag is not set")
-	}
-
-	if *noEmailReport == false && *email != "" {
-		*email, err = helpers.ValidateEmail(*email)
-		if err != nil {
-			return nil, errors.Wrap(err, "couldn't validate email")
-		}
 	}
 
 	logrusLogLvl, err := logrus.ParseLevel(*logLvl)

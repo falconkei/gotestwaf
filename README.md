@@ -333,7 +333,6 @@ Options:
       --blockRegex string       Regex to detect a blocking page with the same HTTP response status code as a not blocked request
       --blockStatusCodes ints   HTTP status code that WAF uses while blocking requests (default [403])
       --configPath string       Path to the config file (default "config.yaml")
-      --email string            E-mail to which the report will be sent
       --followCookies           If true, use cookies sent by the server. May work only with --maxIdleConns=1
       --grpcPort uint16         gRPC port to check
       --idleConnTimeout int     The maximum amount of time a keep-alive connection will live (default 2)
@@ -342,7 +341,6 @@ Options:
       --logLevel string         Logging level: panic, fatal, error, warn, info, debug, trace (default "info")
       --maxIdleConns int        The maximum number of keep-alive connections (default 2)
       --maxRedirects int        The maximum number of handling redirects (default 50)
-      --noEmailReport           Save report locally
       --nonBlockedAsPassed      If true, count requests that weren't blocked as passed. If false, requests that don't satisfy to PassStatusCodes/PassRegExp as blocked
       --openapiFile string      Path to openAPI file
       --passRegex string        Regex to a detect normal (not blocked) web page with the same HTTP status code as a blocked request

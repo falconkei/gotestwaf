@@ -25,8 +25,6 @@ type Config struct {
 	ReportName            string            `mapstructure:"reportName"`
 	ReportFormat          string            `mapstructure:"reportFormat"`
 	IncludePayloads       bool              `mapstructure:"includePayloads"`
-	NoEmailReport         bool              `mapstructure:"noEmailReport"`
-	Email                 string            `mapstructure:"email"`
 	TestCase              string            `mapstructure:"testCase"`
 	TestCasesPath         string            `mapstructure:"testCasesPath"`
 	TestSet               string            `mapstructure:"testSet"`
