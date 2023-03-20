@@ -150,7 +150,7 @@ func prepareHTMLFullReport(
 		TestCasesFP:      s.TestCasesFingerprint,
 		OpenApiFile:      openApiFile,
 		Args:             args,
-		ComparisonTable:  comparisonTable,
+		// ComparisonTable:  comparisonTable,
 	}
 
 	var apiSecNegBlockedNum int

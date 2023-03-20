@@ -129,8 +129,15 @@ func run(ctx context.Context, logger *logrus.Logger) error {
 			cfg.FollowCookies = true
 			cfg.RenewSession = true
 			cfg.WAFName = fmt.Sprintf("%s (%s)", name, vendor)
+
+			if name == "SecureSphereCustom" && len(cfg.BlockStatusCodes) == 0 {
+				cfg.BlockStatusCodes = []int{406}
+			}
 		} else {
 			logger.Info("WAF was not identified")
+		}
+		if len(cfg.BlockStatusCodes) == 0 {
+			cfg.BlockStatusCodes = []int{403}
 		}
 	}
 

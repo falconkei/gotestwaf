@@ -460,51 +460,6 @@
             {{end}}
         </div>
         {{end}}
-        <div class="benchmark">
-            <h2 class="sub-title">Benchmarks against other solutions</h2>
-            <!--<p class="benchmark__text">Monetization of gaming was a fresh concept, growing in tandem with larger builds, open worlds, and sequences.Now, the market continues to grow.</p>-->
-            <div class="grid">
-                <div class="grid__head">
-                    <div class="head__item">Type</div>
-                    <div class="head__item">API Security</div>
-                    <div class="head__item">Application Security</div>
-                    <div class="head__item">Overall score</div>
-                </div>
-                {{range $row := .ComparisonTable}}
-                <div class="grid__row">
-                    <div class="row__item">{{$row.Name}}</div>
-                    <div class="row__item row__item--{{$row.ApiSec.CSSClassSuffix}}">
-                        <div class="row__item-grade row__item-grade--{{$row.ApiSec.CSSClassSuffix}}">{{$row.ApiSec.Mark}}</div>
-                        <div class="row__item-value">{{printf "%.1f%%" $row.ApiSec.Percentage}}</div>
-                    </div>
-                    <div class="row__item row__item--{{$row.AppSec.CSSClassSuffix}}">
-                        <div class="row__item-grade row__item-grade--{{$row.AppSec.CSSClassSuffix}}">{{$row.AppSec.Mark}}</div>
-                        <div class="row__item-value">{{printf "%.1f%%" $row.AppSec.Percentage}}</div>
-                    </div>
-                    <div class="row__item row__item--{{$row.OverallScore.CSSClassSuffix}}">
-                        <div class="row__item-grade row__item-grade--{{$row.OverallScore.CSSClassSuffix}}">{{$row.OverallScore.Mark}}</div>
-                        <div class="row__item-value">{{printf "%.1f%%" $row.OverallScore.Percentage}}</div>
-                    </div>
-                </div>
-                {{end}}
-
-                <div class="grid__footer">
-                    <div class="row__item">Your project</div>
-                    <div class="row__item row__item--{{.ApiSec.Grade.CSSClassSuffix}}">
-                        <div class="row__item-grade row__item-grade--{{.ApiSec.Grade.CSSClassSuffix}}">{{.ApiSec.Grade.Mark}}</div>
-                        <div class="row__item-value">{{printf "%.1f%%" .ApiSec.Grade.Percentage}}</div>
-                    </div>
-                    <div class="row__item row__item--{{.AppSec.Grade.CSSClassSuffix}}">
-                        <div class="row__item-grade row__item-grade--{{.AppSec.Grade.CSSClassSuffix}}">{{.AppSec.Grade.Mark}}</div>
-                        <div class="row__item-value">{{printf "%.1f%%" .AppSec.Grade.Percentage}}</div>
-                    </div>
-                    <div class="row__item row__item--{{.Overall.CSSClassSuffix}}">
-                        <div class="row__item-grade row__item-grade--{{.Overall.CSSClassSuffix}}">{{.Overall.Mark}}</div>
-                        <div class="row__item-value">{{printf "%.1f%%" .Overall.Percentage}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="detail">
             <h2 class="detail__title">Details</h2>
             <h3 class="detail__sub-title">Summary</h3>
@@ -670,58 +625,8 @@
             {{end}}
             {{end}}
             <p>{{.PositiveTests.BypassedRequestsNumber}} false positive requests identified as bypassed (passed, good behavior)</p>
-            {{if .IncludePayloads}}
-            {{if .PositiveTests.BypassedRequestsNumber}}
-            <div class="positive__grid">
-                <div class="positive__grid--head">
-                    <div class="positive__grid--head-item">Payload</div>
-                    <div class="positive__grid--head-item">Test case</div>
-                    <div class="positive__grid--head-item">Encoder</div>
-                    <div class="positive__grid--head-item">Placeholder</div>
-                    <div class="positive__grid--head-item">Status</div>
-                </div>
-                {{range $payload, $codeMap := .PositiveTests.Bypassed}}
-                    {{range $code, $testDetails := $codeMap}}
-                        {{$encoders := MapKeysToString $testDetails.Encoders ", "}}
-                        {{$placeholders := MapKeysToString $testDetails.Placeholders ", "}}
-                <div class="positive__grid--row">
-                    <div class="positive__grid--row-item-payload mono">{{$payload}}</div>
-                    <div class="positive__grid--row-item">{{$testDetails.TestCase}}</div>
-                    <div class="positive__grid--row-item">{{$encoders}}</div>
-                    <div class="positive__grid--row-item">{{$placeholders}}</div>
-                    <div class="positive__grid--row-item">{{$code}}</div>
-                </div>
-                    {{end}}
-                {{end}}
-            </div>
-            {{end}}
-            {{end}}
             {{if .PositiveTests.UnresolvedRequestsNumber}}
             <p>{{.PositiveTests.UnresolvedRequestsNumber}} true positive requests identified as unresolved</p>
-            {{if .IncludePayloads}}
-            <div class="positive__grid">
-                <div class="positive__grid--head">
-                    <div class="positive__grid--head-item">Payload</div>
-                    <div class="positive__grid--head-item">Test case</div>
-                    <div class="positive__grid--head-item">Encoder</div>
-                    <div class="positive__grid--head-item">Placeholder</div>
-                    <div class="positive__grid--head-item">Status</div>
-                </div>
-                {{range $payload, $codeMap := .PositiveTests.Unresolved}}
-                    {{range $code, $testDetails := $codeMap}}
-                        {{$encoders := MapKeysToString $testDetails.Encoders ", "}}
-                        {{$placeholders := MapKeysToString $testDetails.Placeholders ", "}}
-                <div class="positive__grid--row">
-                    <div class="positive__grid--row-item-payload mono">{{$payload}}</div>
-                    <div class="positive__grid--row-item">{{$testDetails.TestCase}}</div>
-                    <div class="positive__grid--row-item">{{$encoders}}</div>
-                    <div class="positive__grid--row-item">{{$placeholders}}</div>
-                    <div class="positive__grid--row-item">{{$code}}</div>
-                </div>
-                    {{end}}
-                {{end}}
-            </div>
-            {{end}}
             {{end}}
             {{if .PositiveTests.FailedRequestsNumber}}
             <p>{{.PositiveTests.FailedRequestsNumber}} true positive requests are failed</p>

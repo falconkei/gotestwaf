@@ -82,7 +82,7 @@ func parseFlags() (args []string, err error) {
 	flag.Bool("followCookies", false, "If true, use cookies sent by the server. May work only with --maxIdleConns=1")
 	flag.Bool("renewSession", false, "Renew cookies before each test. Should be used with --followCookies flag")
 	flag.Bool("skipWAFIdentification", false, "Skip WAF identification")
-	flag.IntSlice("blockStatusCodes", []int{403}, "HTTP status code that WAF uses while blocking requests")
+	flag.IntSlice("blockStatusCodes", []int{}, "HTTP status code that WAF uses while blocking requests")
 	flag.IntSlice("passStatusCodes", []int{200, 404}, "HTTP response status code that WAF uses while passing requests")
 	blockRegex := flag.String("blockRegex", "",
 		"Regex to detect a blocking page with the same HTTP response status code as a not blocked request")
