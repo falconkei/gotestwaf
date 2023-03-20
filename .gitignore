@@ -4,3 +4,4 @@ gotestwaf
 main
 reports/*
 .vscode
+testcases_*
