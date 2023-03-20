@@ -33,6 +33,7 @@ payload:
   - "')) or pg_sleep(5)--"
 encoder:
   - Base64Flat
+  - Plain
   - URL
 placeholder:
   - UrlPath
