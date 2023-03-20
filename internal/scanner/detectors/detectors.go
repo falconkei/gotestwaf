@@ -42,4 +42,7 @@ var Detectors = []*Detector{
 
 	// Cloudflare
 	Cloudflare(),
+
+	// Amazon
+	AWSWaf(),
 }

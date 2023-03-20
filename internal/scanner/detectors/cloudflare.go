@@ -7,9 +7,8 @@ func Cloudflare() *Detector {
 	}
 
 	d.Checks = []Check{
-		CheckStatusCode(403),
 		CheckHeader("Server", "cloudflare"),
-		CheckContent("Cloudflare Ray ID"),
+		CheckContent("Ray ID"),
 	}
 
 	return d
